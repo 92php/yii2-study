@@ -1,0 +1,48 @@
+<?php
+
+namespace app\models;
+
+use Yii;
+
+/**
+ * This is the model class for table "project".
+ *
+ * @property int $id
+ * @property string $name
+ * @property int $status
+ * @property int $create_time
+ */
+class Project extends \yii\db\ActiveRecord
+{
+    /**
+     * {@inheritdoc}
+     */
+    public static function tableName()
+    {
+        return 'project';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return [
+            [['status', 'create_time'], 'integer'],
+            [['name'], 'string', 'max' => 100],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'name' => 'Name',
+            'status' => 'Status',
+            'create_time' => 'Create Time',
+        ];
+    }
+}
